@@ -1,9 +1,9 @@
 # TivitProject
 
-* .Net 6 ASP.NET MVC CORE ile yazıldı.
-* Code-First yaklaşımıyla yazılmıştır.
-* Çok katmanlı mimari ile dizayn edilmiştir.
-* Kullanıcı girişi, kayıt ol, profil güncelleme, yeni tivit oluşturma ve tivitlerin görüntülendiği ana sayfa mevcuttur.
+.Net 6 ASP.NET MVC CORE ile yazıldı. <br />
+Code-First yaklaşımıyla yazılmıştır.  <br />
+Çok katmanlı mimari ile dizayn edilmiştir.  <br />
+Kullanıcı girişi, kayıt ol, profil güncelleme, yeni tivit oluşturma ve tivitlerin görüntülendiği ana sayfa mevcuttur.  <br />
 
 ![2](https://github.com/KadirBircanoglu/TivitProject/assets/125546912/816da2e9-2c36-4de4-97b6-792ff2c948b0)
 
