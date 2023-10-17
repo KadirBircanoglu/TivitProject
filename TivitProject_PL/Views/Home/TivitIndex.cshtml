@@ -1,0 +1,62 @@
+﻿@model TivitIndexViewModel
+@{
+    ViewData["Title"] = "TivitIndex";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+}
+
+@if (TempData["TivitIndexSuccessMsg"] != null)
+{
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>BİLGİ!</strong> @TempData["TivitIndexSuccessMsg"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <br />
+
+}
+
+<div class="row">
+    <form asp-controller="Home" asp-action="TivitIndex" mothod="post"
+          enctype="multipart/form-data">
+          
+        <input type="hidden" asp-for="UserId" /> @*Sayfaya UserId'yi getiriyoruz*@
+        <div class="col-12">
+            <div class="col-9">
+
+                <textarea class="form-control" asp-for="Tivit" id="tivitmessage" placeholder="Bugün ne düşünüyorsun?" style="height:100px"></textarea>
+                <span style="float:right"
+                      class="badge bg-secondary" id="tivitmessagebadge">
+                </span>
+                <input type="file" asp-for="SelectedPictures" multiple accept=".png, .jpg, .jpeg" />
+            </div>
+            <br />
+            <div class="col-3">
+                <button type="submit" class="btn btn-info">Gönder</button>
+            </div>
+        </div>
+
+    </form>
+
+</div>
+
+<div class="tivitdiv">
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+
+            // Tivit karakter sayacı
+            $("#tivitmessage").keyup(function () {
+                var characterCount = $("#tivitmessage").val().length;
+                var x = characterCount + "/400";
+                $("#tivitmessagebadge").text(x);
+                // document.getElementById("tivitmessagebadge").innerText = x; // Bu da kullanılabilir
+            });
+
+
+        }); // document ready bitti
+
+
+    </script>
+}

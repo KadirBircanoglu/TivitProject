@@ -1,0 +1,81 @@
+﻿@model List<TivitIndexViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_LayoutIndex.cshtml";
+
+}
+
+
+
+<div class="row">
+</div>
+@foreach (var item in Model)
+{
+    <br />
+    <br />
+    <div class="row">
+
+                @{
+                    var span = new TimeSpan();
+                    span = DateTime.Now - item.InsertedDate;
+                }
+                @if (@item.AppUser.Id != null)
+                { // Sisteme giriş yapanlar bunları görecek
+                    <div class="col-8">
+                        <img src="@item.AppUser.ProfilePicture" style="width:75px; height:75px;" />
+                        <label>
+                            @item.AppUser.Name @item.AppUser.Surname @Html.Raw("@")<span style="font-style:italic"> @item.AppUser.UserName</span>
+                            <span style="font-weight:bold"> @Math.Round(span.TotalHours)  sa</span>
+                        </label>
+                        <textarea class="form-control" readonly>@item.Tivit</textarea>
+                        <div style="height:10px;">
+                        </div>
+                        <div class="tivitphotos">
+                            @foreach (var media in item.TivitPhotos)
+                            {
+                                <img src="@media.MediaPath" style="width:250px; height:250px;" />
+                            }
+                        </div>
+
+                        <style>
+                            .tivitphotos {
+                                display: grid;
+                                grid-template-columns: 250px 250px 250px; /* Sütun sayısını ve genişliğini ayarlar */
+                                gap: 5px; /* Resimler arasındaki boşluğu ayarlar */
+                            }
+
+                        </style>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-8">
+                        <img src="~/profilepicture.png" style="width:75px; height:75px;" />
+                        <label>
+                            @item.AppUser.Name @item.AppUser.Surname @Html.Raw("@")<span style="font-style:italic"> @item.AppUser.UserName</span>
+                            <span style="font-weight:bold"> @Math.Round(span.TotalHours) sa</span>
+                        </label>
+                        <textarea class="form-control" readonly>@item.Tivit</textarea>
+                        <div style="height:10px;">
+                        </div>
+                        <div class="tivitphotos">
+                            @foreach (var media in item.TivitPhotos)
+                            {
+                                <img src="@media.MediaPath" style="width:150px; height:150px;" />
+                            }
+                        </div>
+
+                        <style>
+                            .tivitphotos {
+                                display: grid;
+                                grid-template-columns: 150px 150px 150px; /* Sütun sayısını ve genişliğini ayarlar */
+                                gap: 5px; /* Resimler arasındaki boşluğu ayarlar */
+                            }
+
+                        </style>
+                    </div>
+
+                }
+            </div>
+}

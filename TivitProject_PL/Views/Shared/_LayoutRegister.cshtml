@@ -1,0 +1,91 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <title>Easy Profile Blue - templatemo</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <!--
+    Easy Profile Template
+    http://www.templatemo.com/tm-467-easy-profile
+    -->
+    <!-- stylesheet css -->
+    <link rel="stylesheet" href="~/MyTemplate/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/MyTemplate/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/MyTemplate/css/templatemo-blue.css">
+
+
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse">
+
+    <!-- preloader section -->
+    <div class="preloader">
+        <div class="sk-spinner sk-spinner-wordpress">
+            <span class="sk-inner-circle"></span>
+        </div>
+    </div>
+
+    <!-- header section -->
+    <div>
+        <br /><br /><br /><br />
+        <div class="container">
+            @await Component.InvokeAsync("TopMenu")
+        </div>
+        <br /><br />
+    </div>
+
+
+
+    <!-- about and skills section -->
+    <div class="context">
+        <section class="container">
+
+            @RenderBody()
+
+        </section>
+    </div>
+
+
+    <!-- education and languages -->
+    <!-- contact and experience -->
+    <!-- footer section -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <p>
+                        Tivit &copy;<script>document.write(new Date().getFullYear());</script> All rights <br />reserved  <i class="icon-heart" aria-hidden="true"></i> by <a href="https://humangroup.biz/" target="_blank">Human Group</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- javascript js -->
+    <script src="~/MyTemplate/js/jquery.js"></script>
+    <script src="~/MyTemplate/js/bootstrap.min.js"></script>
+    <script src="~/MyTemplate/js/jquery.backstretch.min.js"></script>
+    <script src="~/MyTemplate/js/custom.js"></script>
+
+    <div class="backstretch" style="left: 0px; top: 0px; overflow: hidden; margin: 0px; padding: 0px;  background-size: cover;  background-position: center; background-repeat: no-repeat;height: 100vh; z-index: -999999;">
+        <img src="~/MyTemplate/images/450045.jpg">
+    </div>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+
+</body>
+</html>

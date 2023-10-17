@@ -1,0 +1,65 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@* @model  Nullable<AppUser>
+ *@
+
+@model AppUser?
+@* Giriş yapılmamış durumda kullanıcı gelmez. Kullanıcı gelmediği durumlarda patlamaması için nullable yaptık.*@
+
+<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    <div class="container-fluid">
+        <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+            <ul class="navbar-nav flex-grow-1" style="list-style-type: none;">
+                <li class="nav-item">
+                    <a class="nav text-dark " style="font-size: 50px;" asp-area="" asp-controller="Home" asp-action="Index"><b>Tivit &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav text-dark" asp-area="" asp-controller="Home" asp-action="Index">Anasayfa &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                </li>
+                @if (!string.IsNullOrEmpty(Model?.UserName)) // Sisteme giriş yapanlar bunları görecek
+                {
+                    <li class="nav-item">
+                        <a class="nav text-dark" asp-area=""
+                       asp-controller="Account" asp-action="Profile">Hesabım&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav text-dark" asp-area="" asp-controller="Home"
+                       asp-action="Index">Tivitler&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav text-dark" asp-area="" asp-controller="Home"
+                       asp-action="TivitIndex">Tivitle&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    </li>
+                    <li class="nav-item topright">
+                        <a class="nav text-dark" asp-area="" asp-controller="Account"
+                       asp-action="Logout">Çıkış Yap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    </li>
+                }
+                else // Giriş yapmayanlar burayı görecek
+                {
+                    <li class="nav-item topright">
+                        <a class="nav text-dark" asp-area="" asp-controller="Account"
+                       asp-action="Login">Giriş Yap&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                    </li>
+                }
+
+
+                <style>
+                    .topright {
+                        position: absolute;
+                        right: 16px;
+                        font-size: 18px;
+                    }
+
+                </style>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
